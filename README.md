@@ -113,4 +113,42 @@ build on — and the `skills/` folder here is the instruction library for your A
 
 ---
 
+
+## Week 1 Assignment Submission
+
+### Search Question
+Can we predict whether a customer will purchase a vehicle based on their profile and preferences?
+
+### Is this an ML problem?
+Yes. Customer purchasing decisions depend on many factors and patterns that cannot be captured well using simple fixed rules.
+
+### ML Task Type
+Classification
+
+### Learning Type
+Supervised Learning
+
+### Input Features
+- Age
+- Income
+- City
+- Family Size
+- Previous Purchases
+- Preferred Vehicle Type
+
+### Target Variable
+Purchase Decision (Yes/No)
+
+### Success Metrics
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+
+### Why Machine Learning?
+Machine Learning can learn patterns from historical customer data and make predictions for new customers.
+
+### Conclusion
+This is a supervised machine learning classification problem.
+
 *Track leads: Mirza Ašćerić (ML) · Hole (data engineering). Code under MIT (see `LICENSE`); data under `DATA_USE.md`.*
