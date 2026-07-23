@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohd Vasi Saifi — Software & AI Engineer</title>
+<meta name="description" content="AI/ML Engineering Student & Full-Stack Developer building real fintech products and shipping personal agents.">
+<meta property="og:title" content="Mohd Vasi Saifi — Portfolio & Personal Agent">
+<meta property="og:description" content="B.Tech AI & ML student building real fintech products and shipping personal agents.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Dark Theme (Default) */
+    --ink: #0f0f15;
+    --panel: #181824;
+    --panel-2: #222232;
+    --line: #2e2e42;
+    --paper: #f4f4f5;
+    --paper-dim: #a1a1aa;
+    --accent: #f5b041; 
+    --accent-hover: #f39c12;
+    --accent-glow: rgba(245, 176, 65, 0.2);
+    --violet: #9b59b6;
+    --green: #2ecc71;
+    --shadow: 0 20px 40px rgba(0,0,0,0.4);
+    --border-radius: 12px;
+  }
+
+  body.light-theme {
+    /* Light Theme */
+    --ink: #f9f9f8;
+    --panel: #ffffff;
+    --panel-2: #f0f0f0;
+    --line: #e5e4df;
+    --paper: #1a1a18;
+    --paper-dim: #5f5e5a;
+    --accent: #2980b9;
+    --accent-hover: #1f618d;
+    --accent-glow: rgba(41, 128, 185, 0.2);
+    --violet: #8e44ad;
+    --green: #27ae60;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink); color: var(--paper);
+    font-family: 'Inter', sans-serif; line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: #fff; }
+  a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+  a:hover { color: var(--accent-hover); }
+  
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  header.top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 24px; position: sticky; top: 0; z-index: 50;
+    background: rgba(var(--ink), 0.8); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .logo { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 16px; letter-spacing: 0.05em; }
+  .logo span { color: var(--accent); }
+  
+  .nav-group { display: flex; align-items: center; gap: 24px; }
+  nav { display: flex; gap: 24px; }
+  nav a { color: var(--paper-dim); font-size: 14px; font-weight: 500; }
+  nav a:hover { color: var(--paper); }
+  
+  .theme-toggle {
+    background: transparent; border: 1px solid var(--line); color: var(--paper);
+    width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; font-size: 14px;
+  }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero { padding: 100px 24px 80px; position: relative; }
+  .hero::before {
+    content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    z-index: -1; pointer-events: none;
+  }
+  
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--green);
+    letter-spacing: 0.1em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: 24px; padding: 6px 12px; border: 1px solid rgba(46, 204, 113, 0.2);
+    border-radius: 20px; background: rgba(46, 204, 113, 0.05);
+  }
+  .eyebrow::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green); box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.9); } }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: clamp(40px, 7vw, 72px); line-height: 1.05; letter-spacing: -0.02em;
+    max-width: 850px;
+  }
+  h1 .accent { color: var(--accent); }
+  .tagline { font-size: 18px; color: var(--paper-dim); max-width: 600px; margin-top: 24px; line-height: 1.6; }
+  
+  .hero-actions { display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap; }
+  .btn {
+    font-family: 'JetBrains Mono', monospace; font-size: 14px; padding: 14px 24px;
+    border-radius: 8px; border: 1px solid var(--line); cursor: pointer; transition: all 0.2s ease;
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  }
+  .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; box-shadow: 0 4px 15px var(--accent-glow); }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); }
+  body:not(.light-theme) .btn-primary { color: #000; }
+  
+  .btn-outline { background: transparent; color: var(--paper); font-weight: 500; }
+  .btn-outline:hover { border-color: var(--paper); transform: translateY(-2px); }
+
+  .section { padding: 80px 24px; border-top: 1px solid var(--line); }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--violet);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); max-width: 100px; }
+  .section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; margin-bottom: 24px; font-weight: 600; }
+
+  /* Animation Classes */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  .about-text { max-width: 720px; color: var(--paper-dim); font-size: 17px; line-height: 1.7; }
+  .about-text b { color: var(--paper); font-weight: 600; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; max-width: 800px; }
+  .skill-chip {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; padding: 12px 16px;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px; 
+    color: var(--paper); text-align: center; transition: all 0.2s;
+  }
+  .skill-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+  .projects { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 800px; }
+  .project-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: var(--border-radius);
+    padding: 30px; transition: all 0.3s ease; position: relative; overflow: hidden;
+  }
+  .project-card:hover { border-color: var(--accent); box-shadow: var(--shadow); transform: translateY(-4px); }
+  .project-card .name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; margin-bottom: 8px; }
+  .project-card .desc { color: var(--paper-dim); font-size: 15px; margin-bottom: 20px; line-height: 1.6; }
+  .project-links { display: flex; gap: 12px; flex-wrap: wrap; }
+  .p-link {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 6px 12px;
+    border-radius: 4px; background: var(--panel-2); color: var(--paper);
+    border: 1px solid var(--line); display: inline-flex; align-items: center; gap: 6px;
+  }
+  .p-link:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  body:not(.light-theme) .p-link:hover { color: #000; }
+
+  .agent-section { background: var(--panel); position: relative; }
+  .chat-wrapper { max-width: 700px; margin: 0 auto; }
+  .chat-frame {
+    border: 1px solid var(--line); border-radius: var(--border-radius); overflow: hidden;
+    background: var(--ink); box-shadow: var(--shadow);
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+  .chat-frame:focus-within { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-glow); }
+  
+  .chat-titlebar {
+    display: flex; align-items: center; gap: 8px; padding: 14px 20px;
+    background: var(--panel-2); border-bottom: 1px solid var(--line);
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot.r { background: #ff5f56; } .dot.y { background: #ffbd2e; } .dot.g { background: #27c93f; }
+  .chat-titlebar .title { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--paper-dim); margin-left: 10px; }
+  
+  #chat-log { height: 380px; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; gap: 16px; scroll-behavior: smooth; }
+  #chat-log::-webkit-scrollbar { width: 6px; }
+  #chat-log::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+
+  .msg-row { display: flex; width: 100%; }
+  .msg-row.bot { justify-content: flex-start; }
+  .msg-row.user { justify-content: flex-end; }
+  
+  .msg { max-width: 85%; font-size: 15px; padding: 12px 16px; border-radius: 10px; line-height: 1.5; position: relative; }
+  .msg.bot { background: var(--panel-2); border: 1px solid var(--line); border-bottom-left-radius: 2px; }
+  .msg.user { background: var(--accent); color: #fff; border-bottom-right-radius: 2px; font-weight: 500; }
+  body:not(.light-theme) .msg.user { color: #000; }
+
+  .typing-indicator { display: inline-flex; gap: 4px; align-items: center; height: 20px; }
+  .typing-dot { width: 6px; height: 6px; background: var(--paper-dim); border-radius: 50%; animation: blink 1.4s infinite both; }
+  .typing-dot:nth-child(1) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(2) { animation-delay: 0.4s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.6s; }
+  @keyframes blink { 0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); } 40% { opacity: 1; transform: scale(1.1); } }
+
+  .matrix-text { font-family: 'JetBrains Mono', monospace; color: var(--green); font-size: 12px; white-space: pre-wrap; line-height: 1.2; }
+
+  .chat-input-row { display: flex; border-top: 1px solid var(--line); position: relative; }
+  #chat-input {
+    flex: 1; background: transparent; border: none; outline: none; color: var(--paper);
+    padding: 18px 20px; font-family: 'Inter', sans-serif; font-size: 15px;
+  }
+  #chat-input::placeholder { color: var(--paper-dim); }
+  #chat-send {
+    background: transparent; border: none; color: var(--accent); font-weight: 600; padding: 0 24px;
+    font-family: 'JetBrains Mono', monospace; font-size: 14px; cursor: pointer; transition: all 0.2s;
+  }
+  #chat-send:hover { color: var(--accent-hover); background: rgba(var(--ink), 0.5); }
+  
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 20px 20px; border-bottom: 1px solid var(--line); background: var(--ink); }
+  .chip-btn {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 8px 14px;
+    background: var(--panel-2); border: 1px solid var(--line); color: var(--paper);
+    border-radius: 20px; cursor: pointer; transition: all 0.2s;
+  }
+  .chip-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+  footer { padding: 60px 24px; border-top: 1px solid var(--line); text-align: center; }
+  footer .name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; margin-bottom: 12px; }
+  footer .contacts { color: var(--paper-dim); font-size: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  footer .meta { margin-top: 30px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--paper-dim); opacity: 0.7; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    h1 { font-size: 42px; }
+    .hero { padding: 60px 24px; }
+    .msg { max-width: 95%; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="logo">MVS<span>.</span></div>
+  <div class="nav-group">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#agent">Agent</a>
+    </nav>
+    <button class="theme-toggle" id="theme-btn" aria-label="Toggle Theme">◐</button>
+  </div>
+</header>
+
+<section class="hero wrap fade-up">
+  <div class="eyebrow">agent module initialized</div>
+  <h1>Building <span class="accent">fintech intelligence</span> & intelligent agents.</h1>
+  <p class="tagline">B.Tech AI & ML student specializing in full-stack engineering, real-time data aggregation, and modern AI deployments. This is my Capstone Impact Project.</p>
+  <div class="hero-actions">
+    <button class="btn btn-primary" onclick="document.getElementById('agent').scrollIntoView()">Talk to my agent 💬</button>
+    <!-- Links to the specific Vasi_Resume.pdf file in the same directory -->
+    <a class="btn btn-outline" href="./Vasi_Resume.pdf" target="_blank" rel="noopener">📄 Download Resume</a>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap fade-up">
+    <div class="section-label">01 // Profile</div>
+    <h2>About Me</h2>
+    <p class="about-text" id="about-text"></p>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="wrap fade-up">
+    <div class="section-label">02 // Arsenal</div>
+    <h2>Core Stack & Tools</h2>
+    <div class="skills-grid" id="skills-grid"></div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="wrap fade-up">
+    <div class="section-label">03 // Deployments</div>
+    <h2>Featured Projects</h2>
+    <div class="projects" id="projects-list"></div>
+  </div>
+</section>
+
+<section class="section agent-section" id="agent">
+  <div class="wrap fade-up">
+    <div class="section-label">04 // Interactive</div>
+    <h2>Query My Agent</h2>
+    <p style="color:var(--paper-dim); max-width:600px; margin-bottom:30px; font-size:16px;">
+      An NLP-lite conversational agent trained on my portfolio data. Try asking conversational questions, or type <code>/system</code> for telemetry.
+    </p>
+    
+    <div class="chat-wrapper">
+      <div class="chat-frame">
+        <div class="chat-titlebar">
+          <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+          <div class="title">vasi_ai_core v2.0 — bash</div>
+        </div>
+        <div id="chat-log"></div>
+        <div class="chips" id="chat-chips"></div>
+        <div class="chat-input-row">
+          <input id="chat-input" type="text" placeholder="e.g., 'What tech stack do you use?'" autocomplete="off">
+          <button id="chat-send">Send ↵</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="name">Mohd Vasi Saifi</div>
+  <div class="contacts" id="footer-contacts"></div>
+  <div class="meta">Built for General AI Fluency Capstone · System Online</div>
+</footer>
+
+<script>
+/* =========================================================
+   CORE DATA MODEL - Edit info here
+   ========================================================= */
+const PROFILE = {
+  name: "Mohd Vasi Saifi",
+  about: "I am a B.Tech (Hons.) student in Artificial Intelligence & Machine Learning at SDGI Global University (8.50 CGPA, expected 2028), based in Ghaziabad, India. I specialize in building full-stack products—like my recent fintech market-intelligence platform, FinnSays—and integrating modern LLMs into web interfaces. I am currently open to software engineering and AI internship opportunities where I can solve real-world problems.",
+  skills: ["Python", "Java", "C / C++", "Next.js", "TypeScript", "REST APIs", "Git & GitHub", "Vercel", "AI/ML Fundamentals"],
+  projects: [
+    { 
+      name: "FinnSays — Market Intelligence Platform", 
+      desc: "Full-stack fintech app tracking 91 live global assets (equities, crypto, metals, commodities) with real-time feeds via Yahoo Finance & Finnhub APIs. Engineered concurrent data aggregation and rate-limit fallbacks for sub-second refresh latency.", 
+      links: [
+        { label: "🟢 Live Demo", url: "https://finnio.vercel.app" },
+        { label: "🐙 Source Code", url: "https://github.com/vasisaifi1-creator" }
+      ]
+    },
+    { 
+      name: "SDE Unlocked — Engineering Workshop", 
+      desc: "Completed an intensive hands-on full-stack web, data & AI engineering workshop with Brain Mentors, focusing on modern deployment pipelines and architectural patterns.", 
+      links: [
+        { label: "🏆 View Certificate", url: "#" }
+      ]
+    }
+  ],
+  email: "vasisaifi1@gmail.com",
+  socials: [
+    { label: "LinkedIn", url: "https://linkedin.com/in/mohdvasisaifi" },
+    { label: "GitHub", url: "https://github.com/vasisaifi1-creator" }
+  ]
+};
+
+// Render About
+document.getElementById('about-text').innerHTML = `<b>${PROFILE.name}.</b> ${PROFILE.about.replace('I am ', '')}`;
+
+// Render Skills
+const skillsGrid = document.getElementById('skills-grid');
+PROFILE.skills.forEach(s => {
+  const el = document.createElement('div'); el.className = 'skill-chip'; el.textContent = s;
+  skillsGrid.appendChild(el);
+});
+
+// Render Projects
+const projectsList = document.getElementById('projects-list');
+PROFILE.projects.forEach(p => {
+  const card = document.createElement('div'); card.className = 'project-card';
+  
+  let linksHtml = '';
+  p.links.forEach(l => { linksHtml += `<a class="p-link" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`; });
+  
+  card.innerHTML = `
+    <div class="name">${p.name}</div>
+    <div class="desc">${p.desc}</div>
+    <div class="project-links">${linksHtml}</div>
+  `;
+  projectsList.appendChild(card);
+});
+
+// Render Footer Contacts
+const fc = document.getElementById('footer-contacts');
+let contactHtml = `<a href="mailto:${PROFILE.email}">Email Me</a>`;
+PROFILE.socials.forEach(s => { contactHtml += `<a href="${s.url}" target="_blank">${s.label}</a>`; });
+fc.innerHTML = contactHtml;
+
+// Theme Toggle Logic
+const themeBtn = document.getElementById('theme-btn');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') document.body.classList.add('light-theme');
+
+themeBtn.addEventListener('click', () => {
+  document.body.classList.toggle('light-theme');
+  const isLight = document.body.classList.contains('light-theme');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+});
+
+// Scroll Animations (Intersection Observer)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+
+// =========================================================
+// AGENT 2.0 — NLP-Lite Intent Matching + Typing Animation
+// =========================================================
+const INTENTS = [
+  { 
+    intent: "skills", 
+    keywords: ["skill", "stack", "tool", "tech", "language", "code", "program", "framework", "know", "use"], 
+    reply: `My technical arsenal includes: ${PROFILE.skills.join(", ")}. I'm particularly focused on Next.js and AI/ML integrations right now.` 
+  },
+  { 
+    intent: "projects", 
+    keywords: ["project", "build", "built", "ship", "portfolio", "work", "app", "finnsays", "fintech"], 
+    reply: `I recently shipped FinnSays, a live market-intelligence platform tracking 91 global assets. You can try the live demo at finnio.vercel.app. Scroll up to the Projects section to see more.` 
+  },
+  { 
+    intent: "contact", 
+    keywords: ["contact", "email", "reach", "hire", "connect", "message", "touch"], 
+    reply: `You can drop me an email at ${PROFILE.email} or connect with me on LinkedIn. I'm currently open to internship opportunities!` 
+  },
+  { 
+    intent: "education", 
+    keywords: ["education", "college", "university", "degree", "cgpa", "study", "student", "grad"], 
+    reply: `I'm studying Artificial Intelligence & Machine Learning at SDGI Global University (B.Tech Hons). I have an 8.50 CGPA and expect to graduate in 2028.` 
+  },
+  { 
+    intent: "about", 
+    keywords: ["who", "about", "bio", "yourself", "name", "background"], 
+    reply: `I'm ${PROFILE.name}, a developer passionate about bridging complex data (like real-time finance APIs) with intuitive frontend experiences and AI capabilities.` 
+  },
+  {
+    intent: "resume",
+    keywords: ["resume", "cv", "pdf", "download", "paper"],
+    reply: `You can download my full PDF resume using the button in the top hero section of this page, or ask me specific questions about my experience here.`
+  },
+  { 
+    intent: "greeting", 
+    keywords: ["hello", "hi", "hey", "yo", "morning", "afternoon", "sup"], 
+    reply: `Hello! I'm the digital agent for ${PROFILE.name}. Ask me about his tech stack, his latest project (FinnSays), or how to contact him.` 
+  },
+  { 
+    intent: "thanks", 
+    keywords: ["thank", "thanks", "cool", "awesome", "nice", "great"], 
+    reply: `You're welcome! Let me know if you want to know anything else.` 
+  }
+];
+
+const FALLBACK = `I don't have a pre-programmed response for that. Try asking about my **skills**, **projects**, or **education**.`;
+
+const SYSTEM_STATS = `
+<div class="matrix-text">
+INITIATING SYSTEM DIAGNOSTIC...
+-------------------------------
+USER       : MOHD VASI SAIFI
+ROLE       : AI/ML SOFTWARE ENGINEER
+STATUS     : SEEKING INTERNSHIP
+CGPA       : 8.50 [SDGI GLOBAL UNIV]
+DEPLOYMENTS: 2 ACTIVE
+RESUME     : Vasi_Resume.pdf [READY]
+-------------------------------
+END OF REPORT.
+</div>`;
+
+// NLP Scoring Engine
+function getAgentResponse(text) {
+  const cleanText = text.toLowerCase().replace(/[^\w\s]/gi, ''); // strip punctuation
+  if (cleanText === 'system' || cleanText === '/system') return SYSTEM_STATS;
+
+  const words = cleanText.split(' ');
+  let bestMatch = null;
+  let maxScore = 0;
+
+  for (const intent of INTENTS) {
+    let score = 0;
+    // Score based on word matches
+    intent.keywords.forEach(kw => {
+      if (words.includes(kw)) score += 2; // exact word match is strong
+      else if (cleanText.includes(kw)) score += 1; // substring match is weaker
+    });
+
+    if (score > maxScore) {
+      maxScore = score;
+      bestMatch = intent;
+    }
+  }
+
+  return maxScore > 0 ? bestMatch.reply : FALLBACK;
+}
+
+const log = document.getElementById('chat-log');
+const input = document.getElementById('chat-input');
+const sendBtn = document.getElementById('chat-send');
+let isTyping = false;
+
+function addMessageRow(content, sender, isHTML = false) {
+  const row = document.createElement('div');
+  row.className = `msg-row ${sender}`;
+  
+  const msg = document.createElement('div');
+  msg.className = `msg ${sender}`;
+  
+  if (isHTML) {
+    msg.innerHTML = content;
+  } else {
+    msg.textContent = content;
+  }
+  
+  row.appendChild(msg);
+  log.appendChild(row);
+  log.scrollTop = log.scrollHeight;
+  return msg;
+}
+
+function showTypingIndicator() {
+  const row = document.createElement('div');
+  row.className = 'msg-row bot typing-row';
+  const msg = document.createElement('div');
+  msg.className = 'msg bot typing-indicator';
+  msg.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+  row.appendChild(msg);
+  log.appendChild(row);
+  log.scrollTop = log.scrollHeight;
+  return row;
+}
+
+function simulateAgentReply(text) {
+  isTyping = true;
+  const indicator = showTypingIndicator();
+  
+  // Calculate dynamic delay based on length of response (feels more realistic)
+  const delay = Math.min(600 + (text.length * 10), 2000); 
+  
+  setTimeout(() => {
+    indicator.remove();
+    const isHtml = text.includes('<div'); // check for easter egg formatting
+    addMessageRow(text, 'bot', isHtml);
+    isTyping = false;
+  }, delay);
+}
+
+function handleSend(predefinedText) {
+  if (isTyping) return;
+  const val = (predefinedText !== undefined ? predefinedText : input.value).trim();
+  if (!val) return;
+  
+  addMessageRow(val, 'user');
+  input.value = '';
+  
+  const response = getAgentResponse(val);
+  simulateAgentReply(response);
+}
+
+// Event Listeners
+sendBtn.addEventListener('click', () => handleSend());
+input.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(); });
+
+// Suggestion Chips
+const chips = ["What is your tech stack?", "Tell me about FinnSays", "Are you looking for internships?", "/system"];
+const chipsWrap = document.getElementById('chat-chips');
+chips.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'chip-btn';
+  b.textContent = c;
+  b.onclick = () => handleSend(c);
+  chipsWrap.appendChild(b);
+});
+
+// Initial Greeting Delay
+setTimeout(() => {
+  simulateAgentReply(`Hello. I am the conversational agent for ${PROFILE.name}. You can ask me natural questions about his skills and projects, or click the suggestions below.`);
+}, 500);
+
+</script>
+</body>
+</html>
