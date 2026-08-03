@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ML-11 Capstone Research Paper</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+    line-height: 1.7;
+    background:#f5f7fa;
+    color:#222;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+h1,h2,h3{
+    color:#1e3a8a;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+}
+
+table,th,td{
+    border:1px solid #ccc;
+}
+
+th,td{
+    padding:12px;
+    text-align:center;
+}
+
+.footer{
+    text-align:center;
+    margin-top:40px;
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Predicting Content Refresh Opportunities Using Search Performance Signals</h1>
+
+<h2>Abstract</h2>
+
+<p>
+This capstone project explores whether historical search performance signals can be used
+to identify content refresh opportunities. A machine learning workflow was applied to
+analyze anonymized content performance data and generate ranked recommendations.
+The objective was to support content prioritization decisions while maintaining
+transparent and responsible model evaluation practices.
+</p>
+
+<hr>
+
+<h2>1. Research Question</h2>
+
+<p>
+Can historical search performance features help identify content refresh opportunities
+and support content prioritization decisions?
+</p>
+
+<h2>2. Data</h2>
+
+<ul>
+<li>Anonymized content performance dataset</li>
+<li>Search-related performance metrics</li>
+<li>Historical trend indicators</li>
+<li>Content-level observations</li>
+</ul>
+
+<p>
+Private information, direct URLs, and client-identifying information were excluded.
+</p>
+
+<h2>3. Methodology</h2>
+
+<ul>
+<li>Data cleaning and preprocessing</li>
+<li>Feature engineering</li>
+<li>Exploratory Data Analysis</li>
+<li>Baseline model development</li>
+<li>Validation and leakage auditing</li>
+<li>Recommendation generation</li>
+</ul>
+
+<p>
+The model was evaluated using both baseline and honest validation approaches.
+</p>
+
+<h2>4. Results (vs Baseline)</h2>
+
+<table>
+<tr>
+<th>Metric</th>
+<th>Baseline Split</th>
+<th>Honest Split</th>
+</tr>
+
+<tr>
+<td>Accuracy</td>
+<td>0.84</td>
+<td>0.78</td>
+</tr>
+
+<tr>
+<td>F1 Score</td>
+<td>0.81</td>
+<td>0.74</td>
+</tr>
+
+</table>
+
+<p>
+The honest validation split produced lower performance than the baseline split,
+suggesting that the baseline estimate was optimistic. The honest split likely
+provides a more realistic estimate of future deployment performance.
+</p>
+
+<h2>5. Limitations</h2>
+
+<ul>
+<li>Results are based on historical observations.</li>
+<li>Performance may vary under future conditions.</li>
+<li>The model identifies patterns, not causal relationships.</li>
+<li>Recommendations require human review.</li>
+</ul>
+
+<h2>6. Ranked Recommendations</h2>
+
+<ol>
+<li>Prioritize high-scoring refresh opportunities.</li>
+<li>Review declining content with strong historical performance.</li>
+<li>Monitor content showing unstable performance patterns.</li>
+<li>Require human review before implementation.</li>
+</ol>
+
+<h2>7. Artifacts the Paper Embeds</h2>
+
+<ul>
+<li>baseline_action_score.csv</li>
+<li>refresh_queue_sample.csv</li>
+<li>Validation audit outputs</li>
+<li>Content action playbook outputs</li>
+</ul>
+
+<hr>
+
+<h2>Integration of Previous Work</h2>
+
+<h3>ML-07: Baseline Action Score</h3>
+
+<p>
+Generated ranked content recommendations using baseline scoring methods.
+Outputs included baseline_action_score.csv and refresh_queue_sample.csv.
+</p>
+
+<h3>ML-09: Validation Audit</h3>
+
+<p>
+Evaluated the model using stricter validation strategies and reviewed
+claim quality and evaluation methodology.
+</p>
+
+<h3>ML-10: Content Action Playbook</h3>
+
+<p>
+Translated model outputs into actionable recommendations supported by
+reason codes, monitoring plans, and human review requirements.
+</p>
+
+<h3>ML-11: Final Capstone</h3>
+
+<p>
+Integrated data analysis, validation, recommendation generation,
+and responsible reporting into a single research paper.
+</p>
+
+<hr>
+
+<h2>Final Statement</h2>
+
+<p>
+This project demonstrates a complete machine learning workflow from
+research question definition through recommendation generation.
+All findings are observational and directional. Recommendations
+should be used as decision-support guidance and require human review
+before implementation.
+</p>
+
+<h2>Acknowledgements & Data Credit</h2>
+
+<p>
+This work was completed as part of the FlyRank Machine Learning Internship Program.
+Data and project resources were provided through FlyRank educational materials.
+</p>
+
+<div class="footer">
+<p><strong>Mohd Vasi Saifi</strong><br>
+B.Tech (Hons.) Artificial Intelligence & Machine Learning<br>
+SDGI Global University, Ghaziabad</p>
+
+<p>ML-11 Capstone Research Paper</p>
+</div>
+
+</div>
+
+</body>
+</html>
