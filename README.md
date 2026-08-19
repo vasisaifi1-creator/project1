@@ -152,3 +152,133 @@ Machine Learning can learn patterns from historical customer data and make predi
 This is a supervised machine learning classification problem.
 
 *Track leads: Mirza Ašćerić (ML) · Hole (data engineering). Code under MIT (see `LICENSE`); data under `DATA_USE.md`.*
+# FL-09: Documentation and Demo Video
+
+## Project Title
+
+# MVS AI Portfolio Agent
+
+---
+
+## 1. Project Overview
+
+MVS AI Portfolio Agent is an interactive AI-powered portfolio feature designed to help visitors understand my profile, education, skills, projects, technical interests, and experience.
+
+Instead of requiring visitors to search through multiple static portfolio sections, the Agent allows visitors to ask questions directly through a conversational interface.
+
+The project demonstrates how an AI/Agent-style feature can be integrated into a personal portfolio to make the experience more interactive and easier to explore.
+
+---
+
+## 2. Project Purpose
+
+The purpose of this project is to:
+
+- Present my technical profile through a modern portfolio.
+- Demonstrate practical AI/ML skills.
+- Provide an interactive Agent experience.
+- Allow visitors to ask questions about my background and projects.
+- Demonstrate deployment of a working web project.
+- Document the project clearly enough for another person to understand the workflow.
+
+---
+
+## 3. Intended Users
+
+The portfolio is designed for:
+
+- Recruiters
+- Internship reviewers
+- Mentors
+- Developers
+- Technical reviewers
+- Visitors interested in AI/ML projects
+- Visitors interested in my technical skills
+
+---
+
+## 4. Live Portfolio
+
+The deployed portfolio is available at:
+
+https://vasi-portfolio1.netlify.app/
+
+---
+
+## 5. Main Dynamic Feature
+
+## Query My Agent
+
+The main dynamic feature of the portfolio is the **Query My Agent** conversational interface.
+
+Visitors can interact with the Agent and ask questions about:
+
+- My profile
+- My education
+- My technical skills
+- My technology stack
+- My projects
+- My AI/ML interests
+- My portfolio work
+
+The Agent makes the portfolio interactive rather than being only a collection of static web pages.
+
+---
+
+## 6. Example Questions
+
+Example questions that can be asked to the Agent include:
+
+- Tell me about yourself.
+- What is your tech stack?
+- What are your AI/ML skills?
+- Tell me about your projects.
+- Tell me about FinnSays.
+- What technologies do you work with?
+- What are your technical interests?
+
+---
+
+## 7. How to Use the Agent
+
+1. Open the live portfolio.
+
+   https://vasi-portfolio1.netlify.app/
+
+2. Navigate to the **Agent** section.
+
+3. Open **Query My Agent**.
+
+4. Enter a question into the Agent interface.
+
+5. Submit the question.
+
+6. Read the generated response.
+
+7. Try another question to explore additional portfolio information.
+
+---
+
+## 8. Data Flow
+
+The basic data flow of the Agent is:
+
+```text
+User Question
+      ↓
+Portfolio Frontend
+      ↓
+Agent Interface / Logic
+      ↓
+Portfolio Information
+      ↓
+Response Generation
+      ↓
+Response Displayed to User
+# Final Statement
+
+The project demonstrates a practical AI-powered portfolio experience with a working interactive Agent.
+
+The documentation explains the purpose, users, setup, usage, data flow, evaluation, design decision, limitations, deployment, and demonstration.
+
+All evaluation claims are based on observed manual testing, and the Agent is presented as a portfolio assistant rather than a general-purpose AI system.
